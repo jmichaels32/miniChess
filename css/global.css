@@ -1,0 +1,19 @@
+/* -------------------- */
+/* Setup Section */
+/* -------------------- */
+
+:root {
+  box-sizing: border-box;
+}
+
+* {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: courier, monospace;
+  margin: 0;
+
+  background-color: rgb(62, 59, 57);
+  color: rgb(169, 129, 105);
+}
