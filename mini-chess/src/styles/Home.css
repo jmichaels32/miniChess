@@ -38,6 +38,11 @@
   background-color: red;
 }
 
+.board-hover:focus {
+  text-decoration: none;
+  outline: none;
+}
+
 #smallboard {
   align-items: flex-end;
 }
@@ -57,17 +62,7 @@
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
+/*
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -102,3 +97,4 @@
     transform: rotate(360deg);
   }
 }
+*/

@@ -1,0 +1,16 @@
+#noPage {
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#title {
+  margin: 0;
+  font-size: 8vh;
+}
+
+#description {
+  font-size: 3vh;
+}
