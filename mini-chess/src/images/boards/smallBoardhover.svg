@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="260" height="260" viewBox="0 0 260 260">
+  <g id="Small_Board_Hover_State_" data-name="Small Board (Hover State)" transform="translate(10 10)">
+    <g id="Background" fill="#ede8ca" stroke="#707070" stroke-width="10">
+      <rect width="240" height="240" rx="20" stroke="none"/>
+      <rect x="-5" y="-5" width="250" height="250" rx="25" fill="none"/>
+    </g>
+    <path id="Top_left" data-name="Top left" d="M20,0H80a0,0,0,0,1,0,0V80a0,0,0,0,1,0,0H0a0,0,0,0,1,0,0V20A20,20,0,0,1,20,0Z" fill="#af9010"/>
+    <path id="Top_right" data-name="Top right" d="M0,0H60A20,20,0,0,1,80,20V80a0,0,0,0,1,0,0H0a0,0,0,0,1,0,0V0A0,0,0,0,1,0,0Z" transform="translate(160)" fill="#af9010"/>
+    <rect id="Middle" width="80" height="80" transform="translate(80 80)" fill="#af9010"/>
+    <path id="Bottom_left" data-name="Bottom left" d="M0,0H80a0,0,0,0,1,0,0V80a0,0,0,0,1,0,0H20A20,20,0,0,1,0,60V0A0,0,0,0,1,0,0Z" transform="translate(0 160)" fill="#af9010"/>
+    <path id="Bottom_right" data-name="Bottom right" d="M0,0H80a0,0,0,0,1,0,0V60A20,20,0,0,1,60,80H0a0,0,0,0,1,0,0V0A0,0,0,0,1,0,0Z" transform="translate(160 160)" fill="#af9010"/>
+  </g>
+</svg>

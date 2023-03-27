@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="420" height="420" viewBox="0 0 420 420">
+  <g id="Large_Board_Hover_State_" data-name="Large Board (Hover State)" transform="translate(10 10)">
+    <g id="Background" fill="#ede8ca" stroke="#707070" stroke-width="10">
+      <rect width="400" height="400" rx="20" stroke="none"/>
+      <rect x="-5" y="-5" width="410" height="410" rx="25" fill="none"/>
+    </g>
+    <path id="Rectangle_9" data-name="Rectangle 9" d="M20,0H80a0,0,0,0,1,0,0V80a0,0,0,0,1,0,0H0a0,0,0,0,1,0,0V20A20,20,0,0,1,20,0Z" fill="#af9010"/>
+    <rect id="Rectangle_10" data-name="Rectangle 10" width="80" height="80" transform="translate(160)" fill="#af9010"/>
+    <path id="Rectangle_11" data-name="Rectangle 11" d="M0,0H60A20,20,0,0,1,80,20V80a0,0,0,0,1,0,0H0a0,0,0,0,1,0,0V0A0,0,0,0,1,0,0Z" transform="translate(320)" fill="#af9010"/>
+    <rect id="Rectangle_12" data-name="Rectangle 12" width="80" height="80" transform="translate(240 80)" fill="#af9010"/>
+    <rect id="Rectangle_13" data-name="Rectangle 13" width="80" height="80" transform="translate(80 80)" fill="#af9010"/>
+    <rect id="Rectangle_14" data-name="Rectangle 14" width="80" height="80" transform="translate(0 160)" fill="#af9010"/>
+    <rect id="Rectangle_15" data-name="Rectangle 15" width="80" height="80" transform="translate(160 160)" fill="#af9010"/>
+    <rect id="Rectangle_16" data-name="Rectangle 16" width="80" height="80" transform="translate(320 160)" fill="#af9010"/>
+    <rect id="Rectangle_17" data-name="Rectangle 17" width="80" height="80" transform="translate(240 240)" fill="#af9010"/>
+    <rect id="Rectangle_18" data-name="Rectangle 18" width="80" height="80" transform="translate(80 240)" fill="#af9010"/>
+    <path id="Rectangle_19" data-name="Rectangle 19" d="M0,0H80a0,0,0,0,1,0,0V80a0,0,0,0,1,0,0H20A20,20,0,0,1,0,60V0A0,0,0,0,1,0,0Z" transform="translate(0 320)" fill="#af9010"/>
+    <rect id="Rectangle_20" data-name="Rectangle 20" width="80" height="80" transform="translate(160 320)" fill="#af9010"/>
+    <path id="Rectangle_21" data-name="Rectangle 21" d="M0,0H80a0,0,0,0,1,0,0V60A20,20,0,0,1,60,80H0a0,0,0,0,1,0,0V0A0,0,0,0,1,0,0Z" transform="translate(320 320)" fill="#af9010"/>
+  </g>
+</svg>

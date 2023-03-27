@@ -1,0 +1,10 @@
+/* Defines globally used css attributes */
+:root {
+  --background-color: #F8F8F8;
+  --text-color: #545D53;
+}
+
+.text {
+  color: var(--text-color);
+  font-family: Menlo, monospace;
+}
