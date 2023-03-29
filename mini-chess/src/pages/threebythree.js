@@ -15,7 +15,6 @@ import * as Const from '../js/constants.js'
 
 // TODO: ADD RIGHT CLICK DESELECT BUTTON
 
-
 function initializeThreeByThree(board) {
   // Store as tuple to know:
   //  The SVG representing the piece
@@ -28,39 +27,48 @@ function initializeThreeByThree(board) {
   return board;
 }
 
-const EmptyMove = ({ position }) => {
-  const [topPosition, leftPosition] = position;
+const Move = ({ gameState, 
+                piece, 
+                piecePosition, 
+                changeGameState, 
+                newPosition, 
+                changeFocusedPiece, 
+                changeCurrentTurn,
+                image,
+                alt }) => {
+  const [oldTopPosition, oldLeftPosition] = piecePosition;
+  const [topPosition, leftPosition] = newPosition;
 
   const style = {
     top: `calc(var(--small-board-spacing) * ${topPosition})`,
     left: `calc(var(--small-board-spacing) * ${leftPosition})`
   }
 
-  return (
-    <button className="piece move" style={style}>
-      <img className="piece-move-img" src={emptyMove} alt="Empty Move"/>
-    </button>
-  )
-}
+  const movePiece = () => {
+    gameState[oldTopPosition][oldLeftPosition] = Const.ZEROPIECE
+    gameState[topPosition][leftPosition] = piece
+    changeGameState(gameState)
+    changeFocusedPiece(Const.ZEROPIECE)
 
-const PieceMove = ({ position }) => {
-  const [topPosition, leftPosition] = position;
-
-  const style = {
-    top: `calc(var(--small-board-spacing) * ${topPosition})`,
-    left: `calc(var(--small-board-spacing) * ${leftPosition})`
+    // Switch the turns
+    changeCurrentTurn(!piece[1])
   }
 
   return (
-    <button className="piece move" style={style}>
-      <img className="piece-move-img" src={pieceMove} alt="Empty Move"/>
+    <button onClick={movePiece} className="piece move" style={style}>
+      <img className="piece-move-img" src={image} alt={alt}/>
     </button>
   )
 }
 
-const Moves = ({ gameState, focusedPiece, focusedPiecePosition }) => {
+const Moves = ({ gameState, changeGameState, focusedPiece, focusedPiecePosition, changeFocusedPiece, currentTurn, changeCurrentTurn }) => {
   // If there is no piece selected, there should be no moves
   if (focusedPiece === Const.ZEROPIECE) {
+    return null
+  }
+
+  // If the select piece isn't owned by the proper player, there should also be no moves
+  if (focusedPiece[1] !== currentTurn) {
     return null
   }
 
@@ -79,13 +87,32 @@ const Moves = ({ gameState, focusedPiece, focusedPiecePosition }) => {
         if ((i >= 0 && i < gameState.length) && (w >= 0 && w < gameState.length)) {
           // If the position is empty, fill it with an empty move
           if (gameState[i][w] === Const.ZEROPIECE) {
-            moves.push(<EmptyMove 
-                          position={[i, w]}
+            moves.push(<Move 
+                          gameState={gameState}
+                          piece={focusedPiece}
+                          piecePosition={focusedPiecePosition}
+                          changeGameState={changeGameState}
+                          newPosition={[i, w]}
+                          changeFocusedPiece={changeFocusedPiece}
+                          changeCurrentTurn={changeCurrentTurn}
+                          image={emptyMove}
+                          alt={"Empty Move"}
                        />)
           } else {
-            moves.push(<PieceMove
-                          position={[i, w]}
+            // Make sure the piece at the specified position isn't of the same owner (can't capture your own pieces)
+            if (gameState[i][w][1] !== currentTurn) {
+              moves.push(<Move 
+                          gameState={gameState}
+                          piece={focusedPiece}
+                          piecePosition={focusedPiecePosition}
+                          changeGameState={changeGameState}
+                          newPosition={[i, w]}
+                          changeFocusedPiece={changeFocusedPiece}
+                          changeCurrentTurn={changeCurrentTurn}
+                          image={pieceMove}
+                          alt={"Piece Move"}
                        />)
+            }
           }
         }
       }
@@ -98,7 +125,6 @@ const Moves = ({ gameState, focusedPiece, focusedPiecePosition }) => {
 const ChessPiece = ({ focusedPiece, 
                       changeFocusedPiece, 
                       changeFocusedPiecePosition,
-                      currentTurn, 
                       piece, 
                       position }) => {
   const pieceImage = piece[0]
@@ -124,7 +150,7 @@ const ChessPiece = ({ focusedPiece,
 
 
 // Conditionally adds the correct pieces to the board
-const CompiledPieces = ({ focusedPiece, changeFocusedPiece, changeFocusedPiecePosition, currentTurn, gameState }) => {
+const CompiledPieces = ({ focusedPiece, changeFocusedPiece, changeFocusedPiecePosition, gameState }) => {
   const pieces = []
   for (var i = 0; i < gameState.length; i++) {
     for (var w = 0; w < gameState.length; w++) {
@@ -133,7 +159,6 @@ const CompiledPieces = ({ focusedPiece, changeFocusedPiece, changeFocusedPiecePo
                       focusedPiece={focusedPiece}
                       changeFocusedPiece={changeFocusedPiece}
                       changeFocusedPiecePosition={changeFocusedPiecePosition}
-                      currentTurn={currentTurn}
                       piece={gameState[i][w]} 
                       position={[i, w]} 
                     />)
@@ -153,7 +178,6 @@ const ThreeByThree = () => {
   const [focusedPiecePosition, changeFocusedPiecePosition] = useState([0, 0])
   const [currentTurn, changeCurrentTurn] = useState(Const.WHITETURN)
 
-
   const deselectPiece = () => {
     changeFocusedPiece(Const.ZEROPIECE)
   }
@@ -171,13 +195,16 @@ const ThreeByThree = () => {
             focusedPiece={focusedPiece}
             changeFocusedPiece={changeFocusedPiece}
             changeFocusedPiecePosition={changeFocusedPiecePosition}
-            currentTurn={currentTurn}
             gameState={gameState} 
           />
           <Moves 
             gameState={gameState}
+            changeGameState={changeGameState}
             focusedPiece={focusedPiece}
             focusedPiecePosition={focusedPiecePosition}
+            changeFocusedPiece={changeFocusedPiece}
+            currentTurn={currentTurn}
+            changeCurrentTurn={changeCurrentTurn}
             />
         </div>
       </div>

@@ -1,9 +1,17 @@
+// ----------------------------
+// Constants Section
+// ----------------------------
+
 // JS constants for use throughout the application
-export const WHITETURN = 0;
-export const BLACKTURN = 1;
+export const WHITETURN = true;
+export const BLACKTURN = false;
 
 // Zero piece to check for empty board spaces
 export const ZEROPIECE = [0, 0, 0]
+
+// ----------------------------
+// Function Section
+// ----------------------------
 
 // Create a blank state to record the current board position (2D array)
 export function createBoard(size) {
