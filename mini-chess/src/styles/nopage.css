@@ -6,11 +6,11 @@
   align-items: center;
 }
 
-#title {
+#title-nopage {
   margin: 0;
   font-size: 8vh;
 }
 
-#description {
+#description-nopage {
   font-size: 3vh;
 }

@@ -2,9 +2,19 @@
 :root {
   --background-color: #F8F8F8;
   --text-color: #545D53;
+  --red-color: #d72503;
+  --blue-color: #044cd0;
+  --small-board-spacing: 160px;
+  --selected-piece-background: #ffd83d;
 }
 
 .text {
   color: var(--text-color);
   font-family: Menlo, monospace;
+}
+
+.title-secondary {
+  margin: 0;
+  margin-bottom: 8vh;
+  width: 50%;
 }

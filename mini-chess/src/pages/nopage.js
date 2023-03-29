@@ -6,8 +6,8 @@ import '../styles/global.css';
 function NoPage() {
   return (
     <div id="noPage">
-      <strong className="text" id="title"> 404 Error </strong>
-      <p className="text" id="description"> There is no page here, check your URL! </p>
+      <strong className="text" id="title-nopage"> 404 Error </strong>
+      <p className="text" id="description-nopage"> There is no page here, check your URL! </p>
     </div>
   )
 }

@@ -1,0 +1,75 @@
+.board-spacing {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.board-spacing img {
+  pointer-events: none;
+  user-select: none;
+}
+
+.game-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#left-button {
+  display: flex;
+  justify-content: flex-end;
+  flex-grow: 1;
+}
+
+#left-button > button:hover {
+  border: 5px solid var(--blue-color);
+  background-color: var(--blue-color);
+  color: var(--background-color);
+  cursor: pointer;
+}
+
+#right-button {
+  display: flex;
+  justify-content: flex-start;
+  flex-grow: 1;
+}
+
+#right-button > button:hover {
+  border: 5px solid var(--red-color);
+  background-color: var(--red-color);
+  color: var(--background-color);
+  cursor: pointer;
+}
+
+#left-button button,
+#right-button button {
+  margin-top: 40vh;
+  padding: 2vh;
+  border-radius: 10px;
+  border: 5px solid var(--text-color);
+  color: var(--text-color);
+  background-color: transparent;
+  font-size: 4vh;
+}
+
+.board-container {
+  position: relative;
+}
+
+.piece {
+  position: absolute;
+  /*background-color: transparent;*/
+  border: 0;
+  padding: 0;
+  width: var(--small-board-spacing);
+  height: var(--small-board-spacing);
+  cursor: pointer;
+}
+
+.piece-img {
+  width: 100%;
+  height: 100%;
+}
+
