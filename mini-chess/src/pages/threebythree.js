@@ -7,6 +7,7 @@ import '../styles/global.css'
 
 // Constants import
 import { title, smallBoardFunctional, 
+         pieceMove, emptyMove, 
          whiteKing, whitePawn,
          blackKing, blackPawn } from '../js/imports.js';
 import { createBoard, generateUniqueID } from '../js/constants.js'
@@ -24,7 +25,10 @@ function initializeThreeByThree(board) {
   return board;
 }
 
-function generateMoves(position) {
+const Moves = ({ focusedPiece }) => {
+  // Find the current piece's position
+  
+
   return (
     <div>
 
@@ -37,26 +41,19 @@ const ChessPiece = ({ focusedPiece,
                       currentTurn, 
                       piece, 
                       position }) => {
-  const [pieceImage, pieceOwner, pieceID] = piece
+  const pieceImage = piece[0]
   const [topPosition, leftPosition] = position
   
   const style = {
     top: topPosition,
     left: leftPosition,
-    backgroundColor: focusedPiece == pieceID 
+    backgroundColor: focusedPiece == piece
       ? getComputedStyle(document.body).getPropertyValue('--selected-piece-background')
       : 'transparent',
   }
 
-  const selectPiece = () => {
-    changeFocusedPiece(pieceID)
-    if (pieceOwner === currentTurn) {
-      generateMoves(position)
-    } 
-  }
-
   return (
-    <button onClick={selectPiece} className="piece" style={style}>
+    <button onClick={() => {changeFocusedPiece(piece)}} className="piece" style={style}>
       <img className="piece-img" src={pieceImage} alt="Chess Piece"/>
     </button>
     )
@@ -111,6 +108,7 @@ const ThreeByThree = () => {
             currentTurn={currentTurn}
             gameState={gameState} 
           />
+          <Moves focusedPiece={focusedPiece}/>
         </div>
       </div>
       <div className="text" id="right-button" onClick={deselectPiece}>
