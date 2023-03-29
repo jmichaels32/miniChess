@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="480" viewBox="0 0 480 480">
+  <g id="Group_2" data-name="Group 2" transform="translate(-720 -300)">
+    <g id="Board" transform="translate(80 100)">
+      <rect id="Rectangle_22" data-name="Rectangle 22" width="480" height="480" transform="translate(640 200)" fill="#ede8ca"/>
+      <rect id="Rectangle_23" data-name="Rectangle 23" width="160" height="160" transform="translate(640 200)" fill="#af9010"/>
+      <rect id="Rectangle_24" data-name="Rectangle 24" width="160" height="160" transform="translate(960 200)" fill="#af9010"/>
+      <rect id="Rectangle_25" data-name="Rectangle 25" width="160" height="160" transform="translate(800 360)" fill="#af9010"/>
+      <rect id="Rectangle_26" data-name="Rectangle 26" width="160" height="160" transform="translate(960 520)" fill="#af9010"/>
+      <rect id="Rectangle_27" data-name="Rectangle 27" width="160" height="160" transform="translate(640 520)" fill="#af9010"/>
+    </g>
+    <text id="a" transform="translate(866 771)" fill="#ede8ca" font-size="30" font-family="Menlo-Regular, Menlo"><tspan x="-9.031" y="0">a</tspan></text>
+    <text id="b" transform="translate(1027 771)" fill="#af9010" font-size="30" font-family="Menlo-Regular, Menlo"><tspan x="-9.031" y="0">b</tspan></text>
+    <text id="c" transform="translate(1186 771)" fill="#ede8ca" font-size="30" font-family="Menlo-Regular, Menlo"><tspan x="-9.031" y="0">c</tspan></text>
+    <text id="_1" data-name="1" transform="translate(732 648)" fill="#ede8ca" font-size="30" font-family="Menlo-Regular, Menlo"><tspan x="-9.031" y="0">1</tspan></text>
+    <text id="_2" data-name="2" transform="translate(732 486)" fill="#af9010" font-size="30" font-family="Menlo-Regular, Menlo"><tspan x="-9.031" y="0">2</tspan></text>
+    <text id="_3" data-name="3" transform="translate(732 328)" fill="#ede8ca" font-size="30" font-family="Menlo-Regular, Menlo"><tspan x="-9.031" y="0">3</tspan></text>
+  </g>
+</svg>
