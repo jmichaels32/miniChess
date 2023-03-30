@@ -1,16 +1,29 @@
+// General import
+import React, { useState } from 'react';
+
 // Import CSS for constants
 import '../styles/constants.css'
+
+// Import move images
+import { pieceMove, emptyMove } from './imports.js'
 
 // ----------------------------
 // Constants Section
 // ----------------------------
 
 // JS constants for use throughout the application
-export const WHITETURN = true;
-export const BLACKTURN = false;
+export const WHITE = true;
+export const BLACK = false;
+
+// Critical Piece
+export const CRITICAL = true;
+
+// Piece types
+export const KING = 'king'
 
 // Zero piece to check for empty board spaces
-export const ZEROPIECE = [0, 0, 0]
+export const ZEROPIECE = [0, 0, 0, 0, 0]
+
 
 // ----------------------------
 // Function Section
@@ -37,11 +50,47 @@ export function generateUniqueID() {
 
 // -----------------------------------
 // Subsection: Game Mechanics Function
-export const Pieces = ({ focusedPiece, 
-						 changeFocusedPiece, 
-						 changeFocusedPiecePosition, 
-						 gameState,
-						 boardSpacing }) => {
+export const Board = ({ gameState, 
+						changeGameState, 
+						focusedPiece, 
+						changeFocusedPiece,
+						currentTurn,
+						changeCurrentTurn,
+						changeWonState,
+						boardSpacing }) => {
+
+	// Declare all states
+	const [focusedPiecePosition, changeFocusedPiecePosition] = useState([0, 0])
+
+	return (
+		<div> 
+		  <Pieces 
+            focusedPiece={focusedPiece}
+            changeFocusedPiece={changeFocusedPiece}
+            changeFocusedPiecePosition={changeFocusedPiecePosition}
+            gameState={gameState} 
+            boardSpacing={boardSpacing}
+          />
+          <Moves 
+            focusedPiece={focusedPiece}
+            focusedPiecePosition={focusedPiecePosition}
+            gameState={gameState}
+            changeGameState={changeGameState}
+            changeFocusedPiece={changeFocusedPiece} 
+            currentTurn={currentTurn}
+            changeCurrentTurn={changeCurrentTurn} 
+            changeWonState={changeWonState}
+            boardSpacing={boardSpacing}
+          />
+		</div>
+	)
+}
+
+const Pieces = ({ focusedPiece, 
+				  changeFocusedPiece, 
+				  changeFocusedPiecePosition, 
+				  gameState,
+				  boardSpacing }) => {
 	const boardSize = gameState.length;
 	const pieces = [];
 
@@ -64,14 +113,47 @@ export const Pieces = ({ focusedPiece,
 	return <div> {pieces} </div>
 }
 
+const Moves = ({ focusedPiece, 
+				 focusedPiecePosition, 
+				 gameState, 
+			     changeGameState, 
+			     changeFocusedPiece, 
+			     currentTurn, 
+			     changeCurrentTurn, 
+			     changeWonState,
+			     boardSpacing }) => {
+	// If there is no piece selected, there should be no moves
+	if (focusedPiece === ZEROPIECE) {
+		return null
+	}
+
+	// If the select piece isn't owned by the proper player, there should also be no moves
+	if (focusedPiece[1] !== currentTurn) {
+	    return null
+	}
+
+	// Determine the type of the focused piece and determine its move pattern
+	if (focusedPiece[2] === KING) {
+		return kingMove(focusedPiece, 
+						focusedPiecePosition, 
+						gameState, 
+					    changeGameState, 
+					    changeFocusedPiece, 
+					    currentTurn, 
+					    changeCurrentTurn, 
+					    changeWonState,
+					    boardSpacing)
+	}
+}
+
 // -----------------------------------
 // Subsubsection: Individual Chess Components
-export const Piece = ({ piece, 
-						piecePosition, 
-						focusedPiece, 
-						changeFocusedPiece, 
-						changeFocusedPiecePosition,
-						boardSpacing }) => {
+const Piece = ({ piece, 
+				 piecePosition, 
+				 focusedPiece, 
+				 changeFocusedPiece, 
+				 changeFocusedPiecePosition,
+				 boardSpacing }) => {
 	const pieceImage = piece[0]
 	const [topPosition, leftPosition] = piecePosition
 
@@ -99,16 +181,17 @@ export const Piece = ({ piece,
 	)
 }
 
-export const Move = ({ piece,
-					   piecePosition, 
-					   newPosition, 
-					   gameState, 
-					   changeGameState, 
-					   changeFocusedPiece, 
-					   changeCurrentTurn, 
-					   moveImage, 
-					   moveAlt,
-					   boardSpacing }) => {
+const Move = ({ piece,
+			    piecePosition, 
+			    newPosition, 
+			    gameState, 
+			    changeGameState, 
+			    changeFocusedPiece, 
+			    changeCurrentTurn, 
+			    changeWonState,
+			    moveImage, 
+			    moveAlt,
+			    boardSpacing }) => {
 	const [oldTopPosition, oldLeftPosition] = piecePosition
 	const [topPosition, leftPosition] = newPosition
 
@@ -119,7 +202,17 @@ export const Move = ({ piece,
     	height: `var(${boardSpacing})`
   }
 
+  function checkWonGame( capturedPiece, currentTurn ) {
+  	if (capturedPiece[3]) {
+  		changeWonState([true, currentTurn])
+  	}
+  }
+
   function movePiece() {
+    // Remember the captured piece
+    const capturedPiece = gameState[topPosition][leftPosition]
+    const currentTurn = piece[1]
+
   	// Vacate the old spot
   	gameState[oldTopPosition][oldLeftPosition] = ZEROPIECE
   	// Update the new spot
@@ -129,8 +222,11 @@ export const Move = ({ piece,
     changeGameState(gameState)
     changeFocusedPiece(ZEROPIECE)
 
+    // Check if we won the game
+    checkWonGame(capturedPiece, currentTurn)
+
     // Switch the turns
-    changeCurrentTurn(!piece[1])
+    changeCurrentTurn(!currentTurn)
   }
 
   return (
@@ -140,6 +236,67 @@ export const Move = ({ piece,
   )
 
 }
+
+// -----------------------------------
+// Subsubsection: Individual Chess Components
+function kingMove(focusedPiece, 
+				  focusedPiecePosition, 
+				  gameState, 
+				  changeGameState, 
+				  changeFocusedPiece, 
+				  currentTurn, 
+				  changeCurrentTurn, 
+				  changeWonState,
+				  boardSpacing) {
+	const [currentXPosition, currentYPosition] = focusedPiecePosition
+	const boardSize = gameState.length
+	const moves = []
+
+	// Hard code potential positions (makes it easier for granular programming later)
+	const positions = [[-1, -1], [-1, 0], [-1, 1], 
+					   [0, -1],           [0, 1],
+					   [1, -1],  [1, 0],  [1, 1]]
+	for (var positionIndex = 0; positionIndex < positions.length; positionIndex++) {
+		// Parse the current positions
+		const newXPosition = currentXPosition + positions[positionIndex][0]
+		const newYPosition = currentYPosition + positions[positionIndex][1]
+
+		// Make sure we're in bounds
+		if ((newXPosition >= 0 && newXPosition < boardSize) &&
+			(newYPosition >= 0 && newYPosition < boardSize)) {
+			// Determine if a piece doesnt exist at the specified location
+			const pieceDoesntExist = gameState[newXPosition][newYPosition] === ZEROPIECE
+			const moveImage = pieceDoesntExist ? emptyMove : pieceMove
+			const moveAlt = pieceDoesntExist ? "Empty Move" : "Piece Move"
+
+			const move = <Move 
+                      piece={focusedPiece}
+                      piecePosition={focusedPiecePosition}
+                      newPosition={[newXPosition, newYPosition]}
+                      gameState={gameState}
+                      changeGameState={changeGameState}
+                      changeFocusedPiece={changeFocusedPiece}
+                      changeCurrentTurn={changeCurrentTurn}
+                      changeWonState={changeWonState}
+                      moveImage={moveImage}
+                      moveAlt={moveAlt}
+                      boardSpacing={boardSpacing}
+                   />
+            // If a piece does exist at the specified location
+            if (!pieceDoesntExist) {
+            	// Make sure the piece is owned by the right player
+            	if (gameState[newXPosition][newYPosition][1] !== currentTurn) {
+            		moves.push(move)
+            	}
+            } else {
+            	moves.push(move)
+            }
+		}
+	} 
+
+	return <div> {moves} </div>
+}
+
 
 
 
