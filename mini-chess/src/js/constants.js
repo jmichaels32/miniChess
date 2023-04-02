@@ -139,6 +139,7 @@ const Moves = ({ focusedPiece,
 
 	// TODO: Switch and case
 	// TODO: Make function calls smaller?
+	// TODO: Make king moves and knight moves more general (i.e. the moves.push idea)
 
 	// Determine the type of the focused piece and determine its move pattern
 	if (focusedPiece[2] === KING) {

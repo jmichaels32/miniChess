@@ -11,6 +11,7 @@ import mediumBoard from '../images/boards/mediumBoard.svg';
 import largeBoard from '../images/boards/largeBoard.svg';
 import smallBoardFunctional from '../images/boards/smallBoardFunctional.svg';
 import mediumBoardFunctional from '../images/boards/mediumBoardFunctional.svg';
+import largeBoardFunctional from '../images/boards/largeBoardFunctional.svg';
 
 // Pieces import
 // White pieces
@@ -32,6 +33,6 @@ import blackPawn from '../images/pieces/blackPawn.svg';
 export { title, 
 		 pieceMove, emptyMove, 
 		 smallBoard, mediumBoard, largeBoard, 
-		 smallBoardFunctional, mediumBoardFunctional,
+		 smallBoardFunctional, mediumBoardFunctional, largeBoardFunctional,
 		 whiteKing, whiteQueen, whiteRook, whiteBishop, whiteKnight, whitePawn,
 		 blackKing, blackQueen, blackRook, blackBishop, blackKnight, blackPawn };
