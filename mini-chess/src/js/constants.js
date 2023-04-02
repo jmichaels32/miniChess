@@ -141,6 +141,15 @@ const Moves = ({ focusedPiece,
 	// TODO: Make function calls smaller?
 	// TODO: Make king moves and knight moves more general (i.e. the moves.push idea)
 
+	// Move rules to add
+	// TODO: Can't step critical piece inside of attacked piece
+	// TODO: Add draw functionality
+	// TODO: Add "check" functionality
+	// TODO: Add "checkmate" functionailty
+	// -------------
+	// TODO: Add en passante functionality???
+	// TODO: Add castling functionality???
+
 	// Determine the type of the focused piece and determine its move pattern
 	if (focusedPiece[2] === KING) {
 		return kingMove(focusedPiece, 

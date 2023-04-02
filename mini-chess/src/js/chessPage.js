@@ -12,7 +12,18 @@ import { createBoard,
          Board} from './constants.js'
 import * as Const from './constants.js'
 
-// TODO: ADD RIGHT CLICK DESELECT BUTTON
+// TODO: Look into google ad services 
+// TODO: Add right click deselect button
+// TODO: Make the buttons mean more (both are the same right now)
+// TODO: Make a profile login page (backend)
+// TODO: Make a chess board customizer (can select your own board size, piece dynamics, and setup)
+//   -> Requires a complete revamping of how the board is created
+//   -> link it with your profile
+// TODO: Make it multiplayer
+//   -> Requires clock
+//   -> Premoves?
+//   -> ELO ranking?
+// TODO: Improve logo design???
 
 const ChessPage = ({ boardSize, initializationFunction, boardSpacing, boardImg, boardAlt }) => {
   const emptyBoard = createBoard(boardSize);
