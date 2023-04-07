@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="600" viewBox="0 0 600 600">
+  <g id="Board" transform="translate(-700 -250)">
+    <rect id="Rectangle_28" data-name="Rectangle 28" width="600" height="600" transform="translate(700 250)" fill="#ede8ca"/>
+    <rect id="Rectangle_29" data-name="Rectangle 29" width="150" height="150" transform="translate(700 250)" fill="#af9010"/>
+    <rect id="Rectangle_30" data-name="Rectangle 30" width="150" height="150" transform="translate(1000 250)" fill="#af9010"/>
+    <rect id="Rectangle_31" data-name="Rectangle 31" width="150" height="150" transform="translate(1150 400)" fill="#af9010"/>
+    <rect id="Rectangle_32" data-name="Rectangle 32" width="150" height="150" transform="translate(850 400)" fill="#af9010"/>
+    <rect id="Rectangle_33" data-name="Rectangle 33" width="150" height="150" transform="translate(700 550)" fill="#af9010"/>
+    <rect id="Rectangle_34" data-name="Rectangle 34" width="150" height="150" transform="translate(1000 550)" fill="#af9010"/>
+    <rect id="Rectangle_35" data-name="Rectangle 35" width="150" height="150" transform="translate(1150 700)" fill="#af9010"/>
+    <rect id="Rectangle_36" data-name="Rectangle 36" width="150" height="150" transform="translate(850 700)" fill="#af9010"/>
+  </g>
+</svg>

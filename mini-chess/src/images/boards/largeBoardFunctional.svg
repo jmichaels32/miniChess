@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="600" viewBox="0 0 600 600">
+  <g id="Board" transform="translate(-660 -240)">
+    <rect id="Rectangle_38" data-name="Rectangle 38" width="600" height="600" transform="translate(660 240)" fill="#ede8ca"/>
+    <rect id="Rectangle_39" data-name="Rectangle 39" width="120" height="120" transform="translate(660 240)" fill="#af9010"/>
+    <rect id="Rectangle_40" data-name="Rectangle 40" width="120" height="120" transform="translate(900 240)" fill="#af9010"/>
+    <rect id="Rectangle_41" data-name="Rectangle 41" width="120" height="120" transform="translate(1140 240)" fill="#af9010"/>
+    <rect id="Rectangle_42" data-name="Rectangle 42" width="120" height="120" transform="translate(1020 360)" fill="#af9010"/>
+    <rect id="Rectangle_43" data-name="Rectangle 43" width="120" height="120" transform="translate(780 360)" fill="#af9010"/>
+    <rect id="Rectangle_44" data-name="Rectangle 44" width="120" height="120" transform="translate(660 480)" fill="#af9010"/>
+    <rect id="Rectangle_45" data-name="Rectangle 45" width="120" height="120" transform="translate(900 480)" fill="#af9010"/>
+    <rect id="Rectangle_46" data-name="Rectangle 46" width="120" height="120" transform="translate(1140 480)" fill="#af9010"/>
+    <rect id="Rectangle_47" data-name="Rectangle 47" width="120" height="120" transform="translate(1020 600)" fill="#af9010"/>
+    <rect id="Rectangle_48" data-name="Rectangle 48" width="120" height="120" transform="translate(780 600)" fill="#af9010"/>
+    <rect id="Rectangle_49" data-name="Rectangle 49" width="120" height="120" transform="translate(660 720)" fill="#af9010"/>
+    <rect id="Rectangle_50" data-name="Rectangle 50" width="120" height="120" transform="translate(900 720)" fill="#af9010"/>
+    <rect id="Rectangle_51" data-name="Rectangle 51" width="120" height="120" transform="translate(1140 720)" fill="#af9010"/>
+  </g>
+</svg>
